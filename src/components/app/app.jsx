@@ -8,7 +8,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 const welcomeButtonHandler = () => {};
 
 const App = (props) => {
-  const {errorsCount} = props;
+  const {errorsCount, questions} = props;
   return (
     <BrowserRouter>
       <Switch>
@@ -31,6 +31,7 @@ const App = (props) => {
 
 App.propTypes = {
   errorsCount: PropTypes.number.isRequired,
+  questions: PropTypes.array.isRequired,
 };
 
 export default App;
