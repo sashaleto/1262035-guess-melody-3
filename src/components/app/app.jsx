@@ -19,10 +19,10 @@ const App = (props) => {
           />
         </Route>
         <Route exact path="/dev-artist">
-          <ArtistQuestionScreen />
+          <ArtistQuestionScreen question={questions[1]}/>
         </Route>
         <Route exact path="/dev-genre">
-          <GenreQuestionScreen />
+          <GenreQuestionScreen question={questions[0]}/>
         </Route>
       </Switch>
     </BrowserRouter>
