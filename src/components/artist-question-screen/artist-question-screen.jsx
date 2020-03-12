@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-const ArtistQuestionScreen = ({question}) => {
+const ArtistQuestionScreen = ({question, onAnswer}) => {
   const {answers, song} = question;
   return (
     <section className="game game--artist">
@@ -37,7 +37,12 @@ const ArtistQuestionScreen = ({question}) => {
         <form className="game__artist">
           {answers.map((answer, i) => (
             <div key={answer.artist} className="artist">
-              <input className="artist__input visually-hidden" type="radio" name="answer" value={`artist-${i}`} id={`answer-${i}`}/>
+              <input className="artist__input visually-hidden" type="radio" name="answer" value={`artist-${i}`} id={`answer-${i}`}
+                onChange={(evt) => {
+                  evt.preventDefault();
+                  onAnswer(question, answer);
+                }}
+              />
               <label className="artist__name" htmlFor={`answer-${i}`}>
                 <img className="artist__picture" src={answer.picture} alt={answer.artist}/>
                 {answer.artist}
@@ -61,5 +66,6 @@ ArtistQuestionScreen.propTypes = {
       picture: PropTypes.string.isRequired,
     })).isRequired,
   }).isRequired,
+  onAnswer: PropTypes.func.isRequired,
 };
 export default ArtistQuestionScreen;
