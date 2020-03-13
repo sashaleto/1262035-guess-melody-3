@@ -27,7 +27,10 @@ class GenreQuestionScreen extends PureComponent {
         >
           {answers.map((answer, i) => (
             <div key={`${i}-${answer.src}`} className="track">
-              <AudioPlayer key={`${i}-${answer.src}`} src={answer.src}/>
+              <AudioPlayer
+                src={answer.src}
+                isPlaying={i === 0}
+              />
               <div className="game__answer">
                 <input className="game__input visually-hidden" type="checkbox" name="answer"
                   value={`answer-${i}`}

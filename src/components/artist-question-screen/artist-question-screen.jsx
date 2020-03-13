@@ -9,7 +9,10 @@ const ArtistQuestionScreen = ({question, onAnswer}) => {
       <h2 className="game__title">Кто исполняет эту песню?</h2>
       <div className="game__track">
         <div className="track">
-          <AudioPlayer src={song.src}/>
+          <AudioPlayer
+            src={song.src}
+            isPlaying={true}
+          />
         </div>
       </div>
 
