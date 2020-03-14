@@ -1,7 +1,8 @@
 import React, {Fragment, PureComponent, createRef} from 'react';
 import PropTypes from "prop-types";
 
-class AudioPlayer extends PureComponent {
+
+export default class AudioPlayer extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -70,7 +71,8 @@ class AudioPlayer extends PureComponent {
 
   componentDidUpdate() {
     const audio = this._audioRef.current;
-    if (this.state.isPlaying) {
+
+    if (this.props.isPlaying) {
       audio.play();
     } else {
       audio.pause();
@@ -83,5 +85,3 @@ AudioPlayer.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   onPlayButtonClick: PropTypes.func.isRequired,
 };
-
-export default AudioPlayer;

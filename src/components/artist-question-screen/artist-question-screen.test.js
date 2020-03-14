@@ -27,7 +27,11 @@ it(`ArtistQuestionScreen is rendered correctly`, () => {
         question={question}
         onAnswer={() => {}}
         renderPlayer={() => {}}
-      />
+      />, {
+        createNodeMock: () => {
+          return {};
+        }
+      }
   ).toJSON();
 
   expect(tree).toMatchSnapshot();
