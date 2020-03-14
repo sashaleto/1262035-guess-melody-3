@@ -39,6 +39,7 @@ const mockEvent = {
 it(`Click on user answer should pass to the callback data-object from which this answer was created`, () => {
   const {question} = mock;
   const onAnswer = jest.fn();
+  const renderPlayer = jest.fn();
   const userAnswer = {
     artist: `one`,
     picture: `pic-one`,
@@ -46,6 +47,7 @@ it(`Click on user answer should pass to the callback data-object from which this
 
   const screen = shallow(<ArtistQuestionScreen
     onAnswer={onAnswer}
+    renderPlayer={renderPlayer}
     question={question}
   />);
 
